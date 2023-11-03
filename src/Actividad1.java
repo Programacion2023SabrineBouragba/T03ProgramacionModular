@@ -106,15 +106,5 @@ public class Actividad1 {
          * que me devuelva la opcion marcada
          */
         return opcion;
-
-
-    }
-
-    public void Switch(int opcion){
-
-    }
-
-    public static void main(int Switch){
-
     }
 }
