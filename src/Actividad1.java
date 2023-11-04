@@ -15,6 +15,7 @@ public class Actividad1 {
             switch (opcion){
                 case 1:
                     System.out.println("1. Tabla de multiplicar");
+                    dameNumero(opcion);
                     System.out.println();
                     break;
                 case 2:
@@ -106,5 +107,24 @@ public class Actividad1 {
          * que me devuelva la opcion marcada
          */
         return opcion;
+    }
+    static void dameNumero(int numero){
+        /**
+         * Declaro el scanner para que cuando se llame a este metodo
+         * se vuelva a introducir un numero para mostrar la tabla de multiplicar
+         */
+        Scanner sc= new Scanner(System.in);
+
+        System.out.print("Introduce un numero: ");
+        numero=sc.nextInt();
+
+        /**
+         * iniciando en 0 se vaya aumentando hasta llegar a 10
+         * multiplicandolo con el numero introducido por el usuario
+         */
+        for (int i=0; i<=10; i++){
+            System.out.println(numero + " x " + i + "= " + numero*i);
+        }
+
     }
 }
