@@ -4,6 +4,7 @@ public class Actividad1 {
     public static void main(String[] args){
         Scanner sc= new Scanner(System.in);
         int opcion;
+        int numero;
 
         do{
             /**
@@ -11,23 +12,26 @@ public class Actividad1 {
              * me muestra el menu
              * y con el switch me muestra cada opcion con su funcion
              */
-            opcion=menu();
+            opcion= mostrarmenu();
             switch (opcion){
                 case 1:
                     System.out.println("Tabla de multiplicar");
-                    opcion=dameNumero();
-                    mostrarTablaMultiplicar(opcion);
+                    numero=dameNumero();
+                    mostrarTablaMultiplicar(numero);
                     System.out.println();
                     break;
                 case 2:
                     System.out.println("Saludos");
                     String nombre=dameNombre();
-                    opcion=dameNumero();
-                    saluda(nombre, opcion);
+                    numero=dameNumero();
+                    mostrarsaludo(nombre, numero);
                     System.out.println();
                     break;
                 case 3:
                     System.out.println("Números primos");
+                    numero=dameNumero();
+                    boolean esPrimo= esPrimo(numero);
+                    System.out.println("¿Es el número " + numero + " primo? " + esPrimo);
                     System.out.println();
                     break;
                 case 4:
@@ -71,7 +75,7 @@ public class Actividad1 {
      * la funcion menú donde me irá mostrando el menú
      * @return
      */
-    static int menu(){
+    static int mostrarmenu(){
 
         /**
          * declaro el scanner y la variable opcion
@@ -97,19 +101,14 @@ public class Actividad1 {
 
             /**
              * pedimos al usuario el numero
+             * si el numero introducido es menor que 1 o mayor que 9
+             * volver a mostrar el menu
              */
             System.out.print("Introduce una opción del menú: ");
             opcion=sc.nextInt();
 
-            /**
-             * si el numero introducido es menor que 1 o mayor que 9
-             * volver a mostrar el menu
-             */
         }while (opcion<1 || opcion>9);
 
-        /**
-         * que me devuelva la opcion marcada
-         */
         return opcion;
     }
     static int dameNumero() {
@@ -136,7 +135,6 @@ public class Actividad1 {
 
     /**
      * creo dame nombre para utilizar en metodo saluda
-     * @return
      */
     static String dameNombre(){
         Scanner sc = new Scanner(System.in);
@@ -144,10 +142,49 @@ public class Actividad1 {
         return sc.next();
     }
 
-    static void saluda(String nombre, int veces){
+    static void mostrarsaludo(String nombre, int numero){
         //iniciando en 0, aumentar imprimiendo saludo hasta llegar al maximo
-        for(int i=0; i<veces; i++){
+        for(int i=0; i<numero; i++){
             System.out.println("Hola " + nombre);
         }
     }
+
+    /**
+     * creamos metodo para verificar si el numero introducido es primo o no
+     * @param numero
+     * @return
+     */
+    static boolean esPrimo(int numero){
+        //declaracion de variables
+        int modulo=0;
+        int contPrimo=0;
+
+        //si el num es igual a 1, es primo
+        if(numero==1){
+            return true;
+
+        //sino, empezar esta condicion
+        }else if (numero!=0){
+            /*para iniciador de division entre el numero introducido
+            iniciamos en 2 y vamos aumnetando hasta llegar al numero introducido
+            vamos verificando el modulo de cada division hecha
+            si el modulo es 0, lo almacenamos en conPrimo
+            finalmente si este contador es igual a uno, quiere decir
+            que el num introducido solo es divisible por sí mismo
+             */
+            for(int i=2; i<=numero; i++){
+                modulo=numero%i;
+
+                if(modulo==0){
+                    contPrimo++;
+                }
+            }
+            if(contPrimo==1){
+                return true;
+            }
+        }
+        //si no se cumple nada anterior, devolver valor falso
+        return false;
+    }
+
 }
