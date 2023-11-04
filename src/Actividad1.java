@@ -2,16 +2,12 @@ import java.util.Scanner;
 
 public class Actividad1 {
     public static void main(String[] args){
-        Scanner sc= new Scanner(System.in);
         int opcion;
         int numero;
 
         do{
-            /**
-             * llamo a la función menu
-             * me muestra el menu
-             * y con el switch me muestra cada opcion con su funcion
-             */
+            /*llamo a la función menu me muestra el menu
+              y con el switch me muestra cada opcion con su funcion*/
             opcion= mostrarmenu();
             switch (opcion){
                 case 1:
@@ -72,30 +68,23 @@ public class Actividad1 {
                     System.out.println();
             }
 
-            /**
-             * si el numero introducido es 9
-             * no volver a mostrar el menu, es decir sale del programa
-             */
+            /*si el numero introducido es 9
+            no volver a mostrar el menu, es decir sale del programa*/
         }while(opcion != 9);
 
     }
 
     /**
      * la funcion menú donde me irá mostrando el menú
-     * @return
      */
     static int mostrarmenu(){
 
-        /**
-         * declaro el scanner y la variable opcion
-         */
+        /*declaro el scanner y la variable opcion*/
         Scanner sc= new Scanner(System.in);
         int opcion;
 
-        /**
-         * bucle que me vaya mostrando el menú
-         * si no se introduce el numero adecuado
-         */
+        /*bucle que me vaya mostrando el menú
+        si no se introduce el numero adecuado*/
         do{
             System.out.println("Menú: ");
             System.out.println("1. Tabla de multiplicar");
@@ -108,11 +97,9 @@ public class Actividad1 {
             System.out.println("8. Fibonacci");
             System.out.println("9. Salir");
 
-            /**
-             * pedimos al usuario el numero
-             * si el numero introducido es menor que 1 o mayor que 9
-             * volver a mostrar el menu
-             */
+            /*pedimos al usuario el numero
+             si el numero introducido es menor que 1 o mayor que 9
+             volver a mostrar el menu*/
             System.out.print("Introduce una opción del menú: ");
             opcion=sc.nextInt();
 
@@ -121,22 +108,17 @@ public class Actividad1 {
         return opcion;
     }
     static int dameNumero() {
-        int numero;
 
-        /**
-         * Declaro el scanner para que cuando se llame a este metodo
-         * se vuelva a introducir un numero para mostrar la tabla de multiplicar
-         */
+        /*Declaro el scanner para que cuando se llame a este metodo
+         se vuelva a introducir un numero para mostrar la tabla de multiplicar*/
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Introduce un numero entero: ");
         return sc.nextInt();
     }
     static void mostrarTablaMultiplicar(int numero){
-        /**
-         * iniciando en 0 se vaya aumentando hasta llegar a 10
-         * multiplicandolo con el numero introducido por el usuario
-         */
+        /*iniciando en 0 se vaya aumentando hasta llegar a 10
+         multiplicandolo con el numero introducido por el usuario*/
         for (int i=0; i<=10; i++){
             System.out.println(numero + " x " + i + "= " + numero*i);
         }
@@ -160,8 +142,6 @@ public class Actividad1 {
 
     /**
      * creamos metodo para verificar si el numero introducido es primo o no
-     * @param numero
-     * @return
      */
     static boolean esPrimo(int numero){
         //declaracion de variables
