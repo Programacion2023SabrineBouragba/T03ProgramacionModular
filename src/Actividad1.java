@@ -25,9 +25,9 @@ public class Actividad1 {
                     break;
                 case 3:
                     System.out.println("Números primos");
-                    numero=dameNumero();
-                    boolean esPrimo= esPrimo(numero);
-                    System.out.println("¿Es el número " + numero + " primo? " + esPrimo);
+                    int num=dameNumero();
+                    boolean esPrimo= esPrimo(num);
+                    System.out.println("¿Es el número " + num + " primo? " + esPrimo);
                     System.out.println();
                     break;
                 case 4:
@@ -46,7 +46,10 @@ public class Actividad1 {
                     break;
                 case 6:
                     System.out.println("Potencia");
-                    numero=dameNumero();
+                    int base= dameNumero();
+                    int expo= dameNumero2();
+                    int total= potencia(base, expo);
+                    System.out.println("La potencia es de: " + total);
                     System.out.println();
                     break;
                 case 7:
@@ -190,5 +193,24 @@ public class Actividad1 {
             multiplicacion*=i;
         }
         return multiplicacion;
+    }
+
+    static int dameNumero2() {
+
+        /*Declaro el scanner para que cuando se llame a este metodo
+         se vuelva a introducir un numero para mostrar la tabla de multiplicar*/
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Introduce otro numero entero: ");
+        return sc.nextInt();
+    }
+
+    static int potencia(int numero, int numero2){
+        int total=1;
+
+        for(int i=0; i<numero2; i++){
+            total*=numero;
+        }
+        return total;
     }
 }
