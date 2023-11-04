@@ -14,40 +14,44 @@ public class Actividad1 {
             opcion=menu();
             switch (opcion){
                 case 1:
-                    System.out.println("1. Tabla de multiplicar");
-                    dameNumero(opcion);
+                    System.out.println("Tabla de multiplicar");
+                    opcion=dameNumero();
+                    mostrarTablaMultiplicar(opcion);
                     System.out.println();
                     break;
                 case 2:
-                    System.out.println("2. Saluda");
+                    System.out.println("Saludos");
+                    String nombre=dameNombre();
+                    opcion=dameNumero();
+                    saluda(nombre, opcion);
                     System.out.println();
                     break;
                 case 3:
-                    System.out.println("3. Números primos");
+                    System.out.println("Números primos");
                     System.out.println();
                     break;
                 case 4:
-                    System.out.println("4. Sumar n enteros");
+                    System.out.println("Sumar n enteros");
                     System.out.println();
                     break;
                 case 5:
-                    System.out.println("5. Multiplicar n enteros");
+                    System.out.println("Multiplicar n enteros");
                     System.out.println();
                     break;
                 case 6:
-                    System.out.println("6. Potencia");
+                    System.out.println("Potencia");
                     System.out.println();
                     break;
                 case 7:
-                    System.out.println("7. Pirámide");
+                    System.out.println("Pirámide");
                     System.out.println();
                     break;
                 case 8:
-                    System.out.println("8. Fibonacci");
+                    System.out.println("Fibonacci");
                     System.out.println();
                     break;
                 case 9:
-                    System.out.println("9. Salir");
+                    System.out.println("Saliendo...");
                     System.out.println();
                     break;
                 default:
@@ -108,16 +112,19 @@ public class Actividad1 {
          */
         return opcion;
     }
-    static void dameNumero(int numero){
+    static int dameNumero() {
+        int numero;
+
         /**
          * Declaro el scanner para que cuando se llame a este metodo
          * se vuelva a introducir un numero para mostrar la tabla de multiplicar
          */
-        Scanner sc= new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Introduce un numero: ");
-        numero=sc.nextInt();
-
+        System.out.print("Introduce un numero entero: ");
+        return sc.nextInt();
+    }
+    static void mostrarTablaMultiplicar(int numero){
         /**
          * iniciando en 0 se vaya aumentando hasta llegar a 10
          * multiplicandolo con el numero introducido por el usuario
@@ -125,6 +132,22 @@ public class Actividad1 {
         for (int i=0; i<=10; i++){
             System.out.println(numero + " x " + i + "= " + numero*i);
         }
+    }
 
+    /**
+     * creo dame nombre para utilizar en metodo saluda
+     * @return
+     */
+    static String dameNombre(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduce tu nombre: ");
+        return sc.next();
+    }
+
+    static void saluda(String nombre, int veces){
+        //iniciando en 0, aumentar imprimiendo saludo hasta llegar al maximo
+        for(int i=0; i<veces; i++){
+            System.out.println("Hola " + nombre);
+        }
     }
 }
