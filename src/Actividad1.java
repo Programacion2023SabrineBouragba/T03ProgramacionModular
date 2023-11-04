@@ -36,22 +36,31 @@ public class Actividad1 {
                     break;
                 case 4:
                     System.out.println("Sumar n enteros");
+                    numero=dameNumero();
+                    int suma=sumarNEnteros(numero);
+                    System.out.println("La suma de los " + numero + " números primeros es de: " + suma);
                     System.out.println();
                     break;
                 case 5:
                     System.out.println("Multiplicar n enteros");
+                    numero=dameNumero();
+                    int multiplicacion=multiNEnteros(numero);
+                    System.out.println("El producto de los " + numero + " números primeros es de: " + multiplicacion);
                     System.out.println();
                     break;
                 case 6:
                     System.out.println("Potencia");
+                    numero=dameNumero();
                     System.out.println();
                     break;
                 case 7:
                     System.out.println("Pirámide");
+                    numero=dameNumero();
                     System.out.println();
                     break;
                 case 8:
                     System.out.println("Fibonacci");
+                    numero=dameNumero();
                     System.out.println();
                     break;
                 case 9:
@@ -187,4 +196,19 @@ public class Actividad1 {
         return false;
     }
 
+    static int sumarNEnteros(int numero){
+        int suma=0;
+        for(int i=1; i<=numero; i++){
+            suma+=i;
+        }
+       return suma;
+    }
+
+    static int multiNEnteros(int numero){
+        int multiplicacion=1;
+        for(int i=1; i<=numero; i++){
+            multiplicacion*=i;
+        }
+        return multiplicacion;
+    }
 }
