@@ -27,7 +27,11 @@ public class Actividad1 {
                     System.out.println("Números primos");
                     int num=dameNumero();
                     boolean esPrimo= esPrimo(num);
-                    System.out.println("¿Es el número " + num + " primo? " + esPrimo);
+                    if (esPrimo){
+                        System.out.println("El numero introducido es primo.");
+                    }else{
+                        System.out.println("El numero introducido no es primo.");
+                    }
                     System.out.println();
                     break;
                 case 4:
@@ -54,7 +58,9 @@ public class Actividad1 {
                     break;
                 case 7:
                     System.out.println("Pirámide");
+                    String caracter=obtenercaracter();
                     numero=dameNumero();
+                    mostrarpiramide(caracter, numero);
                     System.out.println();
                     break;
                 case 8:
@@ -181,6 +187,8 @@ public class Actividad1 {
 
     static int sumarNEnteros(int numero){
         int suma=0;
+        /*empezando por 1, maximo el numero introducido
+        ir sumando sucesivamente hasta llegar al maximo*/
         for(int i=1; i<=numero; i++){
             suma+=i;
         }
@@ -189,6 +197,8 @@ public class Actividad1 {
 
     static int multiNEnteros(int numero){
         int multiplicacion=1;
+        /*empezando en 1, ir multiplicando en orden numerico
+        hasta llegar al maximo*/
         for(int i=1; i<=numero; i++){
             multiplicacion*=i;
         }
@@ -198,7 +208,7 @@ public class Actividad1 {
     static int dameNumero2() {
 
         /*Declaro el scanner para que cuando se llame a este metodo
-         se vuelva a introducir un numero para mostrar la tabla de multiplicar*/
+         se vuelva a introducir un numero*/
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Introduce otro numero entero: ");
@@ -208,9 +218,37 @@ public class Actividad1 {
     static int potencia(int numero, int numero2){
         int total=1;
 
+        /*empezando en 0, ir aumentando hasta llegar al numero introducido de veces
+        multiplicar el numero inicial(base/numero)
+        las veces que se ha introducido(exponente/numero2)*/
         for(int i=0; i<numero2; i++){
             total*=numero;
         }
         return total;
+    }
+
+    /**
+     * metodo para que el usuario introduzca un carácter para ser utilizado en mostrarpiramide
+     */
+    static String obtenercaracter() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduce un carácter: ");
+        return sc.next();
+
+    }
+
+    static void mostrarpiramide(String caracter, int numero){
+
+        /*
+        i= empezando en 1, ir aumentando la fila hasta llegar al maximo
+        j= emepzando en 0, maximo valor i, ir aumentando la columna
+        imprimiedo en caracter introducido
+         */
+        for(int i=1; i<=numero; i++){
+            for(int j=0; j<i; j++){
+                System.out.print(caracter);
+            }
+            System.out.println();
+        }
     }
 }
