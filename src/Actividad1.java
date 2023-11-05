@@ -58,14 +58,15 @@ public class Actividad1 {
                     break;
                 case 7:
                     System.out.println("Pirámide");
-                    String caracter=obtenercaracter();
+                    String caracter= obtenerCaracter();
                     numero=dameNumero();
-                    mostrarpiramide(caracter, numero);
+                    mostrarPiramide(caracter, numero);
                     System.out.println();
                     break;
                 case 8:
                     System.out.println("Fibonacci");
                     numero=dameNumero();
+                    mostrarFibonnacci(numero);
                     System.out.println();
                     break;
                 case 9:
@@ -230,14 +231,14 @@ public class Actividad1 {
     /**
      * metodo para que el usuario introduzca un carácter para ser utilizado en mostrarpiramide
      */
-    static String obtenercaracter() {
+    static String obtenerCaracter() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Introduce un carácter: ");
         return sc.next();
 
     }
 
-    static void mostrarpiramide(String caracter, int numero){
+    static void mostrarPiramide(String caracter, int numero){
 
         /*
         i= empezando en 1, ir aumentando la fila hasta llegar al maximo
@@ -250,5 +251,38 @@ public class Actividad1 {
             }
             System.out.println();
         }
+    }
+
+    static void mostrarFibonnacci(int numero){
+        int a= 0;
+        int b= 1;
+        int c= 0;
+
+        //empezamos en 0, va sumando e imprimiendo
+        //hasta llegar al maximo introducido(numero)
+        for(int i= 0; i<numero; i++){
+            //imprimir primero el valor 0
+            System.out.print(a + " ");
+            //darle valor a la variable c
+            c= a+b;
+            //el valor a será igual al valor de b
+            a=b;
+            //b será el valor de c
+            b= c;
+
+            /*
+            se imprimira el valor a=0, despues hará la suma de a+b,
+            inicialmente será 1, damos valor a a=b, y b=c,
+            volvera a imprimir a, pero esta vez vale=1,
+            despues tendremos que c=a(1) + b(1), intercambiamos valores
+            e imprimira el valor a que es 2,
+            despues c= 1+2,
+            c=2+3
+            c=3+5
+            el resultado de cada suma se almacena en c, y lo intercambiamos con el valor b
+            asi sucesivamente hasta que acabe el bucle
+             */
+        }
+
     }
 }
