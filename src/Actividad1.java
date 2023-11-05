@@ -1,3 +1,5 @@
+//Autor: Sabrina Bouragba Anhari
+
 import java.util.Scanner;
 
 public class Actividad1 {
@@ -155,7 +157,7 @@ public class Actividad1 {
      */
     static boolean esPrimo(int numero){
         //declaracion de variables
-        int modulo=0;
+        int modulo;
         int contPrimo=0;
 
         //si el num es igual a 1, es primo
@@ -256,7 +258,7 @@ public class Actividad1 {
     static void mostrarFibonnacci(int numero){
         int a= 0;
         int b= 1;
-        int c= 0;
+        int c;
 
         //empezamos en 0, va sumando e imprimiendo
         //hasta llegar al maximo introducido(numero)
@@ -283,6 +285,5 @@ public class Actividad1 {
             asi sucesivamente hasta que acabe el bucle
              */
         }
-
     }
 }
