@@ -105,5 +105,4 @@ public class Actividad2 {
         return opcion;
     }
 
-
 }
