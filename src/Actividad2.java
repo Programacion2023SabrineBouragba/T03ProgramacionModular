@@ -22,6 +22,8 @@ public class Actividad2 {
                 case 1:
                     System.out.println("Mostrar el último dígito: ");
                     System.out.println();
+                    opcion=dameNumero();
+                    dameUltimo(opcion);
 
                     break;
                 case 2:
@@ -105,4 +107,21 @@ public class Actividad2 {
         return opcion;
     }
 
+    /**
+     * metodo para que el usuario introduzca un numero
+     */
+    static int dameNumero(){
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Introduce un número entero: ");
+        return sc.nextInt();
+    }
+
+    /**
+     *metodo para obtener el ultimo digito del numero introducido
+     * obtencion del numero con formula
+     */
+    static void dameUltimo(int numero){
+        int ultNum= numero%10;
+        System.out.println("El último digito del número introducido es: " + ultNum);
+    }
 }
