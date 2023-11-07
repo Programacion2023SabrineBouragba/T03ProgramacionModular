@@ -36,6 +36,8 @@ public class Actividad2 {
                 case 3:
                     System.out.println("Voltear el número: ");
                     System.out.println();
+                    opcion=dameNumero();
+                    volteaNumero(opcion);
 
                     break;
                 case 4:
@@ -119,21 +121,25 @@ public class Actividad2 {
     }
 
     /**
-     *metodo para obtener el ultimo digito del numero introducido
+     * metodo para obtener el ultimo digito del numero introducido
      * obtencion del numero con formula
      */
-    static void dameUltimo(int numero){
+    static int dameUltimo(int numero){
         int ultNum= numero%10;
-        System.out.println("El último digito del número introducido es: " + ultNum);
+        return ultNum;
     }
 
     /**
-     *metodo para quitar el ultimo digito del numero introducido mediante una formula
+     * metodo para quitar el ultimo digito del numero introducido mediante una formula
      */
-    static void quitaUltimo(int numero){
+    static int quitaUltimo(int numero){
         int quitUlt= numero/10;
-        System.out.println("El número final sería: " + quitUlt);
+        return quitUlt;
+
     }
 
+    static void volteaNumero(int numero){
 
+
+    }
 }
