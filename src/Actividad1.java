@@ -10,7 +10,7 @@ public class Actividad1 {
         do{
             /*llamo a la función menu me muestra el menu
               y con el switch me muestra cada opcion con su funcion*/
-            opcion= mostrarmenu();
+            opcion= mostrarMenu();
             switch (opcion){
                 case 1:
                     System.out.println("Tabla de multiplicar");
@@ -22,7 +22,7 @@ public class Actividad1 {
                     System.out.println("Saludos");
                     String nombre=dameNombre();
                     numero=dameNumero();
-                    mostrarsaludo(nombre, numero);
+                    mostrarSaludo(nombre, numero);
                     System.out.println();
                     break;
                 case 3:
@@ -89,7 +89,7 @@ public class Actividad1 {
     /**
      * la funcion menú donde me irá mostrando el menú
      */
-    static int mostrarmenu(){
+    static int mostrarMenu(){
 
         /*declaro el scanner y la variable opcion*/
         Scanner sc= new Scanner(System.in);
@@ -145,7 +145,7 @@ public class Actividad1 {
         return sc.next();
     }
 
-    static void mostrarsaludo(String nombre, int numero){
+    static void mostrarSaludo(String nombre, int numero){
         //iniciando en 0, aumentar imprimiendo saludo hasta llegar al maximo
         for(int i=0; i<numero; i++){
             System.out.println("Hola " + nombre);
