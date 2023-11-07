@@ -29,6 +29,8 @@ public class Actividad2 {
                 case 2:
                     System.out.println("Quitar el último dígito: ");
                     System.out.println();
+                    opcion=dameNumero();
+                    quitaUltimo(opcion);
 
                     break;
                 case 3:
@@ -124,4 +126,14 @@ public class Actividad2 {
         int ultNum= numero%10;
         System.out.println("El último digito del número introducido es: " + ultNum);
     }
+
+    /**
+     *metodo para quitar el ultimo digito del numero introducido mediante una formula
+     */
+    static void quitaUltimo(int numero){
+        int quitUlt= numero/10;
+        System.out.println("El número final sería: " + quitUlt);
+    }
+
+
 }
