@@ -10,6 +10,7 @@ public class Actividad2 {
         //variable opcion donde me leera la opcion introducida del menu
         int opcion;
         int numero;
+        int ultimo;
 
         /*mientras la opcion introducida sea diferente a 10,
         ir mostrarndo las funciones/acciones dependiendo de la opcion introducida
@@ -40,7 +41,7 @@ public class Actividad2 {
                     System.out.println("Voltear el número: ");
                     System.out.println();
                     numero=dameNumero();
-                    int ultimo= volteaNumero(numero);
+                    ultimo= volteaNumero(numero);
                     System.out.println(numero + " volteado: " + ultimo);
 
                     break;
@@ -48,7 +49,7 @@ public class Actividad2 {
                     System.out.println("¿Es capicúa?: ");
                     System.out.println();
                     numero=dameNumero();
-                    ultimo= volteaNumero(numero);
+                    volteaNumero(numero);
                     boolean esCapicua= esCapicua(numero);
                     if (esCapicua){
                         System.out.println("El numero introducido es capicúa.");
