@@ -145,12 +145,19 @@ public class Actividad2 {
      * metodo para quitar el ultimo digito del numero introducido mediante una formula
      */
     static int quitaUltimo(int numero){
-        int quitUlt= numero/10;
+        int quitUlt;
+        if(numero<10){
+            quitUlt=-1;
+        }else{
+            quitUlt= numero/10;
+        }
+
+
         return quitUlt;
     }
 
     /**
-     *metodo para voltear el numero introducido y mostratelo
+     * metodo para voltear el numero introducido y mostratelo
      */
     static int volteaNumero(int numero){
         //declaracion variables
@@ -169,9 +176,8 @@ public class Actividad2 {
     }
 
     /**
-     *
-     * @param numero
-     * @return
+     * metodo utiliza el metodo de voltear el numero para ver si este y esCapicua son iguales,
+     * si lo son que me devuleva true, sino que me devuleva false.
      */
     static boolean esCapicua(int numero){
 
