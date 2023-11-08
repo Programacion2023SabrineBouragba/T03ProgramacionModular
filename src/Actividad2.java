@@ -9,7 +9,7 @@ public class Actividad2 {
     public static void main(String[] args){
         //variable opcion donde me leera la opcion introducida del menu
         int opcion;
-        int numero=0;
+        int numero;
 
         /*mientras la opcion introducida sea diferente a 10,
         ir mostrarndo las funciones/acciones dependiendo de la opcion introducida
@@ -47,6 +47,14 @@ public class Actividad2 {
                 case 4:
                     System.out.println("¿Es capicúa?: ");
                     System.out.println();
+                    numero=dameNumero();
+                    ultimo= volteaNumero(numero);
+                    boolean esCapicua= esCapicua(numero);
+                    if (esCapicua){
+                        System.out.println("El numero introducido es capicúa.");
+                    }else{
+                        System.out.println("El numero introducido no es capicúa.");
+                    }
 
                     break;
                 case 5:
@@ -152,7 +160,7 @@ public class Actividad2 {
         variable iniciada igualada a ella misma por 10, sumandole el ultimo numero del numero introducido,
         depues a el numero inicial se le quita el ultimo digito y se vuelve a iniciar el bucle
          */
-        while(numero!=0){
+        while(numero!=-1){
             int ultimo=dameUltimo(numero);
             numVolteado=(numVolteado*10)+ultimo;
             numero=quitaUltimo(numero);
@@ -160,4 +168,20 @@ public class Actividad2 {
         return numVolteado;
     }
 
+    /**
+     *
+     * @param numero
+     * @return
+     */
+    static boolean esCapicua(int numero){
+
+        int a=numero;
+        int volteado=volteaNumero(numero);
+
+        if (a!=volteado){
+            return false;
+        }
+
+        return true;
+    }
 }
