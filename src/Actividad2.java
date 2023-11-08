@@ -9,6 +9,7 @@ public class Actividad2 {
     public static void main(String[] args){
         //variable opcion donde me leera la opcion introducida del menu
         int opcion;
+        int numero=0;
 
         /*mientras la opcion introducida sea diferente a 10,
         ir mostrarndo las funciones/acciones dependiendo de la opcion introducida
@@ -22,22 +23,25 @@ public class Actividad2 {
                 case 1:
                     System.out.println("Mostrar el último dígito: ");
                     System.out.println();
-                    opcion=dameNumero();
-                    dameUltimo(opcion);
+                    numero=dameNumero();
+                    int ultNum= dameUltimo(numero);
+                    System.out.println("El último digito del número introduce es: " + ultNum);
 
                     break;
                 case 2:
                     System.out.println("Quitar el último dígito: ");
                     System.out.println();
                     opcion=dameNumero();
-                    quitaUltimo(opcion);
+                    int quitUlt= quitaUltimo(opcion);
+                    System.out.println("El número final sería: " + quitUlt);
 
                     break;
                 case 3:
                     System.out.println("Voltear el número: ");
                     System.out.println();
-                    opcion=dameNumero();
-                    volteaNumero(opcion);
+                    numero=dameNumero();
+                    int ultimo= volteaNumero(numero);
+                    System.out.println(numero + " volteado: " + ultimo);
 
                     break;
                 case 4:
@@ -135,11 +139,25 @@ public class Actividad2 {
     static int quitaUltimo(int numero){
         int quitUlt= numero/10;
         return quitUlt;
-
     }
 
-    static void volteaNumero(int numero){
-
-
+    /**
+     *metodo para voltear el numero introducido y mostratelo
+     */
+    static int volteaNumero(int numero){
+        //declaracion variables
+        int numVolteado=0;
+        /*
+        mientras el numero introducido sea diferente de 0, entrar en el bucle,
+        variable iniciada igualada a ella misma por 10, sumandole el ultimo numero del numero introducido,
+        depues a el numero inicial se le quita el ultimo digito y se vuelve a iniciar el bucle
+         */
+        while(numero!=0){
+            int ultimo=dameUltimo(numero);
+            numVolteado=(numVolteado*10)+ultimo;
+            numero=quitaUltimo(numero);
+        }
+        return numVolteado;
     }
+
 }
