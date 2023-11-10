@@ -61,6 +61,8 @@ public class Actividad2 {
                 case 5:
                     System.out.println("Mostrar capicúas: ");
                     System.out.println();
+                    numero=dameNumero();
+                    muestraNCapicuas(numero);
 
                     break;
                 case 6:
@@ -190,5 +192,23 @@ public class Actividad2 {
         }
 
         return true;
+    }
+
+    /**
+     * metodo para mostrar los numeros capicuas, dependiendo del numero que introduzca el susuario
+     * si introduce 2, le mostraran los dos primeros capicuas a partir del numero 10.
+     */
+    static void muestraNCapicuas(int numero){
+        int cont=0;
+
+        /*empezando en 10, mientras contador sea menor que el numero
+          la i va aumentando*/
+        for(int i=10; cont<numero; i++){
+            //si la i al utilizar el metodo esCapicua, da verdadero, mostrarlo y aumentar el contador, así sucesivamente
+            if (esCapicua(i)) {
+            System.out.println(i);
+            cont++;
+            }
+        }
     }
 }
