@@ -88,18 +88,12 @@ public class Actividad2 {
                 case 8:
                     System.out.println("De binario a octal: ");
                     System.out.println();
+
                     int binario1=dameNumero();
-
-                    /*si el numero introducido al completar el metodo es falso,
-                     que me devuelva el siguiente mensaje*/
-                    if (validarBinarios(binario1)){
-                        System.out.println("Numero introducido no válido.");
-                        return;
-                    }
-
                     int decimal1=binarioToDecimal(binario1);
                     int octal=binarioToOctal(decimal1);
                     System.out.println("El numero equivalente en octal: " + octal);
+
                     break;
                 case 9:
                     System.out.println("De binario a hexadecimal: ");
@@ -308,8 +302,6 @@ public class Actividad2 {
         }
         return octal;
     }
-
-
 }
 
 
