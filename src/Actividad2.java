@@ -72,7 +72,17 @@ public class Actividad2 {
                     break;
                 case 7:
                     System.out.println("Pasar de binario a decimal: ");
-                    System.out.println();
+                    int binario=dameNumero();
+
+                    /*si el numero introducido al completar el metodo es falso,
+                     que me devuelva el siguiente mensaje*/
+                    if (!validarBinario(binario)){
+                        System.out.println("Numero introducido no válido.");
+                        return;
+                    }
+
+                    int decimal=binarioToDecimal(binario);
+                    System.out.println("El decimal es: " + decimal);
 
                     break;
                 case 8:
@@ -140,8 +150,7 @@ public class Actividad2 {
      * obtencion del numero con formula
      */
     static int dameUltimo(int numero){
-        int ultNum= numero%10;
-        return ultNum;
+        return numero%10;
     }
 
     /**
@@ -184,10 +193,9 @@ public class Actividad2 {
      */
     static boolean esCapicua(int numero){
 
-        int a=numero;
         int volteado=volteaNumero(numero);
 
-        if (a!=volteado){
+        if (numero !=volteado){
             return false;
         }
 
@@ -210,5 +218,61 @@ public class Actividad2 {
             cont++;
             }
         }
+    }
+
+    /**
+     *metodo para validar el numero introducido, verificar si es binario
+     */
+    static boolean validarBinario(int binario){
+        //convertimos el binario en cadena
+        String binarioCadena= String.valueOf(binario);
+        //bucle para la cadena
+        /*
+        iniciamos en 0, vamos aumentando hasta llegar al largo de la cadena.
+         */
+        for(int i=0; i<binarioCadena.length(); i++){
+            //dividir la cadena por caracteres, empieza por el primero
+            char caracter= binarioCadena.charAt(i);
+            /*si el primer caracter es diferente de 0 y de 1, devolver valor falso
+            * sino ir comprobando el resto de caracteres, y si todos son o cros o unos, que me devuleva true
+            *  y empiece a calcularlo a decimal*/
+
+            /* agregado una condición extra para el primer carácter (cuando i == 0) que permite que sea '0'
+             a partir del segundo carácter (i > 0), la validación normal de '0' y '1' se aplica
+             esto permite números binarios que comienzan con ceros */
+            if (i == 0 && caracter != '0' && caracter != '1') {
+                return false;
+            } else if (i > 0 && (caracter != '0' && caracter != '1')) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     *metodo para poder coalcular un numero proporcionado en binario
+     * pasarlo a decimal y que me lo muestre
+     */
+    static int binarioToDecimal(int binario){
+        int decimal=0;
+        int exponente=0;
+
+        //mientras validar binario sea true, empezar bucle.
+        while(true){
+            //si el binario es igual a 0, acabar bucle
+            if(binario==0){
+                break;
+            }else{
+                /* almacenar en ult el ultimo numero del binario introducido
+                 en variable decimal se almacenara el calculo de:
+                el ultimo caracter del numero introducido, por base 2 exponente inicial 0(utilizando la formula math pow), el exponente irá umentando
+                despues al numero introducido se le quitará el ultimo caracter, y el exponente se aumentara en uno */
+                int ult= binario%10;
+                decimal+= (int) (ult*Math.pow(2, exponente));
+                binario= binario/10;
+                exponente++;
+            }
+        }
+        return decimal;
     }
 }
