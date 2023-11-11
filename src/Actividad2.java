@@ -76,7 +76,7 @@ public class Actividad2 {
 
                     /*si el numero introducido al completar el metodo es falso,
                      que me devuelva el siguiente mensaje*/
-                    if (!validarBinario(binario)){
+                    if (validarBinarios(binario)){
                         System.out.println("Numero introducido no válido.");
                         return;
                     }
@@ -88,7 +88,18 @@ public class Actividad2 {
                 case 8:
                     System.out.println("De binario a octal: ");
                     System.out.println();
+                    int binario1=dameNumero();
 
+                    /*si el numero introducido al completar el metodo es falso,
+                     que me devuelva el siguiente mensaje*/
+                    if (validarBinarios(binario1)){
+                        System.out.println("Numero introducido no válido.");
+                        return;
+                    }
+
+                    int decimal1=binarioToDecimal(binario1);
+                    int octal=binarioToOctal(decimal1);
+                    System.out.println("El numero equivalente en octal: " + octal);
                     break;
                 case 9:
                     System.out.println("De binario a hexadecimal: ");
@@ -141,7 +152,7 @@ public class Actividad2 {
      */
     static int dameNumero(){
         Scanner sc= new Scanner(System.in);
-        System.out.print("Introduce un número entero: ");
+        System.out.print("Introduce un número: ");
         return sc.nextInt();
     }
 
@@ -223,7 +234,7 @@ public class Actividad2 {
     /**
      *metodo para validar el numero introducido, verificar si es binario
      */
-    static boolean validarBinario(int binario){
+    static boolean validarBinarios(int binario){
         //convertimos el binario en cadena
         String binarioCadena= String.valueOf(binario);
         //bucle para la cadena
@@ -241,12 +252,12 @@ public class Actividad2 {
              a partir del segundo carácter (i > 0), la validación normal de '0' y '1' se aplica
              esto permite números binarios que comienzan con ceros */
             if (i == 0 && caracter != '0' && caracter != '1') {
-                return false;
+                return true;
             } else if (i > 0 && (caracter != '0' && caracter != '1')) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     /**
@@ -275,4 +286,30 @@ public class Actividad2 {
         }
         return decimal;
     }
+
+    /**
+     *metodo para pasar de decimal a octal, utilizando el metodo anterior
+     * se introducira el numero binario, se hara la conversion en el metodo binarioToDecimal
+     * una vez hecho, se pasa de decimal a octal
+     * inicio variables e al comprobar que el decimal es distinto de 0, comienzo el bucle
+     * en la variable ultimo, mediante esa formulo, consigo el ultimo digito del numero
+     * en la variable octal almaceno y calculo el ultimo digito por 8 elevado inicialmente a 0, depues irá incrementando
+     * en la variable decimal se quita el ultimo digito, y vuelve a iniciar el bucle, hasta que no queden digitos en el numero.
+     */
+    static int binarioToOctal(int decimal){
+        int octal=0;
+        int expo=0;
+
+        while(decimal!=0){
+            int ultimo=decimal%8;
+            octal+= (int) (ultimo*Math.pow(10, expo));
+            decimal/=8;
+            expo++;
+        }
+        return octal;
+    }
+
+
 }
+
+
